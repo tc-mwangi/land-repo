@@ -13,11 +13,11 @@ class User(UserMixin,db.Model):
         '''creates instances of user
         '''
     __tablename__='users'
-    user_id  = db.Column(db.Integer,primary_key = True)
+    id  = db.Column(db.Integer,primary_key = True)
     name = db.Column(db.String(255))
     username = db.Column(db.String(255),unique = True,nullable=False)
     email = db.Column(db.String(255),unique = True,nullable=False)
-    pass_secure = db.Column(db.String(255))
+    favorites = db.relationship('Favorites',backref = 'favorite',lazy ="dynamic")
 
     @property
     def password(self):
@@ -37,11 +37,13 @@ class Places(db.Model):
     '''creates insatnces of places on the map
     '''
     __tablename__='places'
-    place_id = db.Column(db.Integer,primary_key=True)
+    id = db.Column(db.Integer,primary_key=True)
     place_name= db.Column(db.String(100),nullable=False)
     description= db.Column(db.String(300),nullable=True)
     lat = db.Column(db.Float,nullable=False)
     lng = db.Column(db.Float,nullable=False)
+    reviews = db.relationship('Reviews',backref = 'review',lazy ="dynamic")
+    favorites = db.relationship('Favorites',backref = 'favorite',lazy ="dynamic")
 
     def __repr__(self):
         return f' {self.place_name}, {self.description}'
@@ -51,21 +53,26 @@ class Favorites(db.Model):
 
     __tablename__ = "favorite"
 
-    favorite_id = db.Column(db.Integer,primary_key=True)
-    landmark_id = db.Column(db.Integer, db.ForeignKey('places.place_id'))
-    user_id = db.Column(db.Integer, db.ForeignKey('users.user_id'))
+    id = db.Column(db.Integer,primary_key=True)
+	place_id = db.Column(db.Integer, db.ForeignKey("places.id"), nullable=False)
+	user_id = db.Column(db.Integer, db.ForeignKey("users.id"), nullable=False)
 
-    # Define relationship to places
-    places = db.relationship("Places", backref='saved',lazy='dynamic')
-    # Define relationship to user
-    user = db.relationship("User", backref='saved',lazy='dynamic')
 
-    def __repr__(self):
-        f'{self.favorite_id, self.place_id, self.user_id}'
+	def save_favorite(self):
+		db.session.add(self)
+		db.session.commit()
 
-    def __init__(self, place_id, user_id):
+class Review(db.Model):
+	__tablename__ = 'reviews'
+	id = db.Column(db.Integer, primary_key=True)
+	name= db.Column(db.String(255))
+	review = db.Column(db.Text)
+	date_posted = db.Column(db.DateTime, nullable=False, default=datetime.utcnow)
+	place_id = db.Column(db.Integer, db.ForeignKey("places.id"), nullable=False)
 
-        self.place_id = place_id
-        self.user_id = user_id
-        self.favorite = []
+
+
+	def save_review(self):
+		db.session.add(self)
+		db.session.commit()
 
