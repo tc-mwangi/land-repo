@@ -114,6 +114,10 @@ fieldset {
   padding: 0;
 }
 
+.form {
+  margin-top: 4%;
+}
+
 .form label {
   font-family: "Montserrat", sans-serif;
   color: #79cbe9;
@@ -129,6 +133,11 @@ fieldset {
   padding: 7px 10px;
   width: 20%;
   border-radius: 14px;
+}
+
+.form .input:focus {
+  outline: 0;
+  border: 1.4px solid #5d2072;
 }
 
 .form .main-btn {

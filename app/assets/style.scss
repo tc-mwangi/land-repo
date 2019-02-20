@@ -120,6 +120,7 @@ fieldset {
 }
 
 .form {
+   margin-top: 4%;
    label {
       @include font($first-light,500,13px);
       margin: 4px 0;
@@ -132,6 +133,10 @@ fieldset {
       padding: 7px 10px;
       width: 20%;
       border-radius: 14px;
+      &:focus {
+         outline: 0;
+         border: 1.4px solid $main;
+      }
    }
 
    .main-btn {
