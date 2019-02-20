@@ -1,17 +1,44 @@
-{% extends 'base.html'%}
-{% import 'bootstrap/wtf.html' as wtf%}
+{% extends 'layout.html' %}
 
 {% block content %}
-<div class="container">
-<div class="row">
-<div class="col-md-2"> </div>
-<div class="col-md-8">
 
-{{wtf.quick_form(registration_form)}}
+   <div class="form-page">
+      {% include "nav.html" %}
 
-</div>
-<div class="col-md-2"></div>
-</div>
-</div>
+      <div class="form">
+         <form method='POST' action="">
+            {{ registration_form.hidden_tag() }}
+            <fieldset>
+               <div>
+                  {{ registration_form.name.label(class="") }}<br>
+                  {{ registration_form.name(class="input") }}
+               </div>
+               <div>
+                  {{ registration_form.email.label(class="") }}<br>
+                  {{ registration_form.email(class="input") }}
+               </div>
+               <div>
+                  {{ registration_form.username.label(class="") }}<br>
+                  {{ registration_form.username(class="input") }}
+               </div>
+               <div>
+                  {{ registration_form.password.label(class="") }}<br>
+                  {{ registration_form.password(class="input") }}
+               </div>
+               <div>
+                  {{ registration_form.password_confirm.label(class="") }}<br>
+                  {{ registration_form.password_confirm(class="input") }}
+               </div>
+            </fieldset>
+            <div>
+               {{ registration_form.submit(class="main-btn") }}
+            </div>
+         </form>
+      </div>
 
-{% endblock%}
+   </div>
+
+
+   
+
+{% endblock %}

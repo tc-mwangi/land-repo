@@ -104,4 +104,39 @@ header {
   border-radius: 20px;
   font-weight: 600;
 }
+
+.form-page {
+  margin: 1.5% 2%;
+}
+
+fieldset {
+  border: none;
+  padding: 0;
+}
+
+.form label {
+  font-family: "Montserrat", sans-serif;
+  color: #79cbe9;
+  font-weight: 500;
+  font-size: 13px;
+  margin: 4px 0;
+}
+
+.form .input {
+  margin: 10px 0;
+  border: 1px solid #79cbe9;
+  background: transparent;
+  padding: 7px 10px;
+  width: 20%;
+  border-radius: 14px;
+}
+
+.form .main-btn {
+  margin: 10px 0;
+  background-color: #5d2072;
+  font-family: "Montserrat", sans-serif;
+  color: #79cbe9;
+  font-weight: 500;
+  font-size: 13px;
+}
 /*# sourceMappingURL=style.css.map */
