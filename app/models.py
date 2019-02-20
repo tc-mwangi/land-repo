@@ -10,3 +10,11 @@ def load_user(user_id):
 
 
 class User:
+    __table__='users'
+    '''creates instances of user
+    '''
+
+class Map:
+    '''creates insatnces of map
+    '''
+
