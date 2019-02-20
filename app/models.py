@@ -10,15 +10,19 @@ def load_user(user_id):
 
 
 class User(UserMixin,db.Model):
+
         '''creates instances of user
         '''
     __tablename__= 'users'
+
 
     id  = db.Column(db.Integer,primary_key = True)
     name = db.Column(db.String(255))
     username = db.Column(db.String(255),unique = True,nullable=False)
     email = db.Column(db.String(255),unique = True,nullable=False)
     favorites = db.relationship('Favorites',backref = 'favorite',lazy ="dynamic")
+    pass_secure = db.Column(db.String(255))
+
 
     @property
     def password(self):
@@ -30,6 +34,7 @@ class User(UserMixin,db.Model):
 
     def verify_password(self,password):
         return check_password_hash(self.pass_secure,password)
+
 
     def __repr__(self):
         return f'User {self.username}'
