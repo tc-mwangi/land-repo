@@ -13,7 +13,27 @@ class User:
     __table__='users'
     '''creates instances of user
     '''
+    id  = db.Column(db.Integer,primary_key = True)
+    name = db.Column(db.String(255))
+	username = db.Column(db.String(255),unique = True,nullable=False)
+    email = db.Column(db.String(255),unique = True,nullable=False)
+    pass_secure = db.Column(db.String(255))
 
+    @property
+    def password(self):
+        raise AttributeError("Can't read")
+
+    @password.setter
+    def password(self):
+        self.pass_secure = generate_password_hash(password)
+
+    def verify_password(self,password):
+        return check_password_hash(self.pass_secure,password)
+
+	def __repr__(self):
+
+		return f'User {self.username}'
+        
 class Map:
     '''creates insatnces of map
     '''
