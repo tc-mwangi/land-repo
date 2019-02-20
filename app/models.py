@@ -10,12 +10,12 @@ def load_user(user_id):
 
 
 class User(UserMixin,db.Model):
-    __table__='users'
+    __tablename__='users'
     '''creates instances of user
     '''
     id  = db.Column(db.Integer,primary_key = True)
     name = db.Column(db.String(255))
-	username = db.Column(db.String(255),unique = True,nullable=False)
+    username = db.Column(db.String(255),unique = True,nullable=False)
     email = db.Column(db.String(255),unique = True,nullable=False)
     pass_secure = db.Column(db.String(255))
 
@@ -24,15 +24,14 @@ class User(UserMixin,db.Model):
         raise AttributeError("Can't read")
 
     @password.setter
-    def password(self):
+    def password(self,password):
         self.pass_secure = generate_password_hash(password)
 
     def verify_password(self,password):
         return check_password_hash(self.pass_secure,password)
 
-	def __repr__(self):
-
-		return f'User {self.username}'
+    def __repr__(self):
+        return f'User {self.username}'
 
 class Map:
     '''creates insatnces of map
