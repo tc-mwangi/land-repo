@@ -5,25 +5,6 @@
    <div class="form-page">
       {% include "nav.html" %}
 
-      <div class="form">
-         <form method='POST' action="">
-            {{ login_form.hidden_tag() }}
-            <fieldset>
-               <div>
-                  {{ login_form.email.label(class="") }}<br>
-                  {{ login_form.email(class="input") }}
-               </div>
-               <div>
-                  {{ login_form.password.label(class="") }}<br>
-                  {{ login_form.password(class="input") }}
-               </div>
-            </fieldset>
-            <div>
-               {{ login_form.submit(class="main-btn") }}
-            </div>
-         </form>
-      </div>
-
    </div>
 
 {% endblock %}

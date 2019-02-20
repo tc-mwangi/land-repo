@@ -115,7 +115,9 @@ fieldset {
 }
 
 .form {
-  margin-top: 4%;
+  width: 50%;
+  margin: 4% auto;
+  text-align: center;
 }
 
 .form label {
@@ -130,14 +132,46 @@ fieldset {
   margin: 10px 0;
   border: 1px solid #79cbe9;
   background: transparent;
-  padding: 7px 10px;
-  width: 20%;
-  border-radius: 14px;
+  padding: 8px 12px;
+  width: 50%;
+  border-radius: 20px;
+  font-family: "Montserrat", sans-serif;
+  color: #5d2072;
+  font-weight: 600;
+  font-size: 14px;
 }
 
 .form .input:focus {
   outline: 0;
   border: 1.4px solid #5d2072;
+}
+
+.form .input::-webkit-input-placeholder {
+  font-family: "Montserrat", sans-serif;
+  color: #79cbe9;
+  font-weight: 500;
+  font-size: 12px;
+}
+
+.form .input:-ms-input-placeholder {
+  font-family: "Montserrat", sans-serif;
+  color: #79cbe9;
+  font-weight: 500;
+  font-size: 12px;
+}
+
+.form .input::-ms-input-placeholder {
+  font-family: "Montserrat", sans-serif;
+  color: #79cbe9;
+  font-weight: 500;
+  font-size: 12px;
+}
+
+.form .input::placeholder {
+  font-family: "Montserrat", sans-serif;
+  color: #79cbe9;
+  font-weight: 500;
+  font-size: 12px;
 }
 
 .form .main-btn {
@@ -147,5 +181,16 @@ fieldset {
   color: #79cbe9;
   font-weight: 500;
   font-size: 13px;
+}
+
+.form h1 {
+  font-family: "Montserrat", sans-serif;
+  color: #79cbe9;
+  font-weight: 700;
+  font-size: 24px;
+}
+
+.form h1 span {
+  color: #B0DBEB;
 }
 /*# sourceMappingURL=style.css.map */
