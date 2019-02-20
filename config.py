@@ -8,7 +8,7 @@ class Config:
 
     SQLALCHEMY_TRACK_MODIFICATIONS = False
     UPLOADED_PHOTOS_DEST ='app/static/photos'
-
+    SQLALCHEMY_DATABASE_URI = os.environ["DATABASE_URL"]
     #  email configurations
     # MAIL_SERVER = 'smtp.gmail.com'
     # MAIL_PORT = 587
