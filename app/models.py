@@ -9,7 +9,7 @@ def load_user(user_id):
     return User.query.get(int(user_id))
 
 
-class User:
+class User(UserMixin,db.Model):
     __table__='users'
     '''creates instances of user
     '''
@@ -33,7 +33,7 @@ class User:
 	def __repr__(self):
 
 		return f'User {self.username}'
-        
+
 class Map:
     '''creates insatnces of map
     '''
