@@ -4,4 +4,6 @@ from .. import db
 
 @main.route('/')
 def index():
-    return '<h1> Hello World </h1>'
+    title = 'vYbe'
+    return render_template('index.html',title=title)
+
