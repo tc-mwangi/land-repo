@@ -12,7 +12,8 @@ def load_user(user_id):
 class User(UserMixin,db.Model):
         '''creates instances of user
         '''
-    __tablename__='users'
+    __tablename__= 'users'
+
     id  = db.Column(db.Integer,primary_key = True)
     name = db.Column(db.String(255))
     username = db.Column(db.String(255),unique = True,nullable=False)
@@ -37,6 +38,7 @@ class Places(db.Model):
     '''creates insatnces of places on the map
     '''
     __tablename__='places'
+
     id = db.Column(db.Integer,primary_key=True)
     place_name= db.Column(db.String(100),nullable=False)
     description= db.Column(db.String(300),nullable=True)
@@ -64,6 +66,7 @@ class Favorites(db.Model):
 
 class Review(db.Model):
 	__tablename__ = 'reviews'
+    
 	id = db.Column(db.Integer, primary_key=True)
 	name= db.Column(db.String(255))
 	review = db.Column(db.Text)
