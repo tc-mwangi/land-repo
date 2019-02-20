@@ -18,28 +18,29 @@ class Config:
     # SUBJECT_PREFIX = 'Vybe'
     # SENDER_EMAIL = 'saber.dangermouse@gmail.com'
 
-# simple mde  configurations
-    SIMPLEMDE_JS_IIFE = True
-    SIMPLEMDE_USE_CDN = True
+    # simple mde  configurations
     @staticmethod
     def init_app(app):
         pass
 
 class ProdConfig(Config):
-    SQLALCHEMY_DATABASE_URI = os.environ.get("VYBE_DATABASE_URL")
+    # SQLALCHEMY_DATABASE_URI = os.environ.get("VYBE_DATABASE_URL")
     pass
 
 class TestConfig(Config):
-    SQLALCHEMY_DATABASE_URI = 'postgresql+psycopg2://ron:3159@localhost/vybetest'
+    '''
+    Docstring
+    '''
+    # SQLALCHEMY_DATABASE_URI = os.environ.get("DATABASE_URL")
     pass
 
 class DevConfig(Config):
-    SQLALCHEMY_DATABASE_URI = 'postgresql+psycopg2://ron:3159@localhost/vybe'
+    SQLALCHEMY_DATABASE_URI = os.environ.get("DATABASE_URL")
     DEBUG = True
 
 config_options = {
     "production":ProdConfig,
     "development":DevConfig,
     "testing":TestConfig
-    }
+}
 

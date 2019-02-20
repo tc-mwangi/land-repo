@@ -2,9 +2,9 @@
    <div class='logo'>
       <img src="{{ url_for('static', filename='images/logo.png') }}" alt="">
    </div>
-   <div class="menu">
+   <div class="menu right">
       <ul>
-         <li><a href="">Log In</a></li>
+         <li><a href="{{ url_for('auth.login') }}">Log In</a></li>
       </ul>
    </div>
 </nav>
