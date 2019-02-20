@@ -1,0 +1,13 @@
+$fonts: 'Montserrat', sans-serif;
+
+$main: #5d2072;
+$first-light: #79cbe9;
+$second-light: #f7f421;
+$second-dark: #f7f421;
+
+@mixin font($color: $first-light,$weight: 500,$size: 14px,$family: $fonts) {
+   font-family: $family;
+   color: $color;
+   font-weight: $weight;
+   font-size: $size;
+}
