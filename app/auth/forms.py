@@ -8,7 +8,7 @@ class LoginForm(FlaskForm):
 	email = StringField('Your Email Address',validators=[Required(),Email()], render_kw={"placeholder": "Enter Your Email"})
 	password = PasswordField('Password',validators =[Required()], render_kw={"placeholder": "Enter Your Password"})
 	remember = BooleanField('Remember me')
-	submit = SubmitField('Sign In')
+	submit = SubmitField('Log In')
 
 class RegistrationForm(FlaskForm):
     email = StringField('Your Email Address',validators=[Required(),Email()], render_kw={"placeholder": "Your Email Address"})

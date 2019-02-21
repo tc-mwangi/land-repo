@@ -17,6 +17,7 @@ class User(UserMixin,db.Model):
     name = db.Column(db.String(255))
     username = db.Column(db.String(255),unique = True,nullable=False)
     email = db.Column(db.String(255),unique = True,nullable=False)
+    avatar = db.Column(db.String(200), default='default.jpg')
     pass_secure = db.Column(db.String(255))
 
     @property
