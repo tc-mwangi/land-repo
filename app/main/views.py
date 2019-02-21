@@ -156,4 +156,7 @@ def home():
 
     points = create_stop_locations_details()
 
+
     return render_template('home.html',title=title,points=points, user = user, ACCESS_KEY='sk.eyJ1Ijoic2FiZXJkYW5nZXIiLCJhIjoiY2pzZWJjZ3JwMTI0ZDN6bWx4bHplcWl3dyJ9.8EJHp44K185MRZExZcv_Tg')
+
+
