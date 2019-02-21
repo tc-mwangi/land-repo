@@ -1,3 +1,4 @@
+
 import unittest
 from app.models import User
 from app import db
@@ -11,7 +12,7 @@ class TestUSer(unittest.TestCase):
         """
         creates a new user before  a test
         """
-        self.new_user = User(username = "user",bio = "newUser",password ="1234")
+        self.new_user = User(username = "user",password ="1234")
 
     def tearDown(self):
         """
@@ -30,7 +31,7 @@ class TestUSer(unittest.TestCase):
         Tests whether the user is instantiated correctly
         """
         self.assertTrue(self.new_user.username == "user")
-        self.assertTrue(self.new_user.bio == "newUser")
+        
 
     def test_pass_generate(self):
         """
@@ -50,3 +51,4 @@ class TestUSer(unittest.TestCase):
         """
         self.new_user.save_user()
         self.assertTrue(len(User.query.all()) == 1)
+
