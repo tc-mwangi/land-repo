@@ -56,7 +56,8 @@ ul li {
 
 .menu {
    a {
-      @include font($main,600,14px);
+      @include font($main,500,13px);
+      margin: 0 5px;
    }
 }
 
@@ -219,7 +220,11 @@ fieldset {
    box-sizing: border-box;
 
    nav {
-      margin: 0.5% 2.5%;
+      width: 95%;
+      margin: 0.5% 2.5%; 
+      div {
+         display: inline-block;
+      }
    }
 }
 
@@ -234,12 +239,13 @@ fieldset {
 }
 
 .avatar-tiny {
-   width: 30px;
-   height: 30px;
+   width: 25px;
+   height: 25px;
    border-radius: 50%;
    overflow: hidden;
    img {
       width: 100%;
+      vertical-align: center;
    }
 }
 
@@ -311,4 +317,8 @@ fieldset {
    p {
       @include font($first-light,500,13px);
    }
+}
+
+.popular {
+   @include font($main,700,14px);
 }

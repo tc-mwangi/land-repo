@@ -40,8 +40,9 @@ ul li {
 .menu a {
   font-family: "Montserrat", sans-serif;
   color: #5d2072;
-  font-weight: 600;
-  font-size: 14px;
+  font-weight: 500;
+  font-size: 13px;
+  margin: 0 5px;
 }
 
 #page {
@@ -298,7 +299,12 @@ fieldset {
 }
 
 .in-nav nav {
+  width: 95%;
   margin: 0.5% 2.5%;
+}
+
+.in-nav nav div {
+  display: inline-block;
 }
 
 .avatar {
@@ -313,14 +319,15 @@ fieldset {
 }
 
 .avatar-tiny {
-  width: 30px;
-  height: 30px;
+  width: 25px;
+  height: 25px;
   border-radius: 50%;
   overflow: hidden;
 }
 
 .avatar-tiny img {
   width: 100%;
+  vertical-align: center;
 }
 
 .logo {
@@ -410,5 +417,12 @@ fieldset {
   color: #79cbe9;
   font-weight: 500;
   font-size: 13px;
+}
+
+.popular {
+  font-family: "Montserrat", sans-serif;
+  color: #5d2072;
+  font-weight: 700;
+  font-size: 14px;
 }
 /*# sourceMappingURL=style.css.map */

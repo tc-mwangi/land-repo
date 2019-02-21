@@ -43,58 +43,8 @@ def favourites():
 
 
 
-
-@main.route('/places.geojson')
-def places_json():
-    """Send places data for map layer as Geojson from database.
-        Will require some review.
-    """
-
-    features = []
-
-
-    for place in Places.query.all():
-        # get the first image of a place, if any
-        image = ""
-        if len(place.images) > 0:
-            image = place.images[0].imageurl 
-        # get the average rating of a place
-        avg_rating = ""
-        rating_scores = [r.user_score for r in place.ratings]
-        if len(rating_scores) > 0:
-            avg_rating = float(sum(rating_scores))/len(rating_scores)
-        
-        features.append({
-                        "type": "Feature",
-                        "properties": {
-                            "name": place.place_name,
-                            "description": place.place_description
-                            # "artist":  place.place_artist,
-                            # "display-dimensions": place.place_display_dimensions,
-                            # "location-description": place.place_location_description,
-                            # "medium": place.place_medium
-                            },
-                        "geometry": {
-                            "coordinates": [
-                                place.lng,
-                                place.lat],
-                            "type": "Point"
-                        },
-                        "id": place.place_id,
-                        'image': image,
-                        'avg_rating': avg_rating,
-                        })
-    
-    places_geojson = {
-                        "type": "FeatureCollection",
-                        "features": features,
-                        }
-
-    return jsonify(places_geojson)
-
-
-
 @main.route('/explore')
+@login_required
 def home():
     title = 'Explore'
 
@@ -113,6 +63,7 @@ def home():
     return render_template('home.html',title=title,stop_locations=stop_locations, user = user, ACCESS_KEY='sk.eyJ1Ijoic2FiZXJkYW5nZXIiLCJhIjoiY2pzZWJjZ3JwMTI0ZDN6bWx4bHplcWl3dyJ9.8EJHp44K185MRZExZcv_Tg',places=places)
 
 @main.route('/like/<int:id>')
+@login_required
 def like(id): 
 
     place = Places.query.get_or_404(id)
