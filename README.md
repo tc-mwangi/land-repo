@@ -1,4 +1,4 @@
-![alt text](/home/ryan/Documents/vybe-repo/app/static/images/logo.png)
+![alt text](app/static/images/logo.png)
 
 # Description
 
