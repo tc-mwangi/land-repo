@@ -30,11 +30,11 @@ class ProdConfig(Config):
     pass
 
 class TestConfig(Config):
-    SQLALCHEMY_DATABASE_URI = 'postgresql+psycopg2://ron:3159@localhost/vybetest'
+    SQLALCHEMY_DATABASE_URI = os.environ.get("VYBE_DATABASE_URL")
     pass
 
 class DevConfig(Config):
-    SQLALCHEMY_DATABASE_URI = 'postgresql+psycopg2://ron:3159@localhost/vybe'
+    SQLALCHEMY_DATABASE_URI = os.environ.get("VYBE_DATABASE_URL")
     DEBUG = True
 
 config_options = {
