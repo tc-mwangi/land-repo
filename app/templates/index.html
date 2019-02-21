@@ -1,11 +1,22 @@
-{% extends 'base.html'%}
+{% extends 'layout.html'%}
 
-<!--    
-        <p class="active"><a href="/">Home</a></p>
-      
-        <p><a href="{{url_for('main.index',uname=current_user.username)}}">Profile</a></p>
-        <a class="btn btn-danger navbar-btn" href="{{url_for('auth.logout')}}">Sign out</a>
-  
-        <p><a href="{{url_for('auth.login')}}">Sign in</a></p>
-    -->
-<button href="auth/login">Login</button>
+{% block content %}
+    
+    <div id="page">
+        <header>
+            {% include "nav.html" %}
+            <div class="header-text left">
+                <h1>Map your favorite<br>places.</h1>
+                <p>Know of any interesting places? Share them with us.</p>
+                <a href="{{ url_for('auth.register') }}">
+                    <button class="main-btn">Sign Up</button>
+                </a>
+            </div>
+            <div class="person right">
+                <img src="{{ url_for('static', filename='images/man.png') }}" alt="">
+            </div>
+        </header>
+    </div>
+
+{% endblock %}
+

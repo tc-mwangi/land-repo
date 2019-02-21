@@ -8,7 +8,7 @@ class Config:
 
     SQLALCHEMY_TRACK_MODIFICATIONS = False
     UPLOADED_PHOTOS_DEST ='app/static/photos'
-
+    SQLALCHEMY_DATABASE_URI = os.environ["DATABASE_URL"]
     #  email configurations
     # MAIL_SERVER = 'smtp.gmail.com'
     # MAIL_PORT = 587
@@ -18,28 +18,28 @@ class Config:
     # SUBJECT_PREFIX = 'Vybe'
     # SENDER_EMAIL = 'saber.dangermouse@gmail.com'
 
-# simple mde  configurations
-    SIMPLEMDE_JS_IIFE = True
-    SIMPLEMDE_USE_CDN = True
+    # simple mde  configurations
     @staticmethod
     def init_app(app):
         pass
 
 class ProdConfig(Config):
-    SQLALCHEMY_DATABASE_URI = os.environ.get("VYBE_DATABASE_URL")
+    #SQLALCHEMY_DATABASE_URI = os.environ.get("VYBE_DATABASE_URL")
     pass
 
 class TestConfig(Config):
+    '''
+    Docstring
+    '''
     SQLALCHEMY_DATABASE_URI = os.environ.get("VYBE_DATABASE_URL")
     pass
 
 class DevConfig(Config):
-    SQLALCHEMY_DATABASE_URI = os.environ.get("VYBE_DATABASE_URL")
+    SQLALCHEMY_DATABASE_URI = os.environ.get("DATABASE_URL")
     DEBUG = True
 
 config_options = {
     "production":ProdConfig,
     "development":DevConfig,
     "testing":TestConfig
-    }
-
+}

@@ -1,0 +1,208 @@
+$fonts: 'Montserrat', sans-serif;
+
+$main: #5d2072;
+$first-light: #79cbe9;
+$second-light: #f7f421;
+$second-dark: #f7f421;
+
+$page-margin: 1.5% 2%;
+
+@mixin font($color: $first-light,$weight: 500,$size: 14px,$family: $fonts) {
+   font-family: $family;
+   color: $color;
+   font-weight: $weight;
+   font-size: $size;
+}
+
+body {
+   padding: 0;
+   margin: 0;
+   font-family: $fonts;
+}
+
+.left {
+   float: left;
+}
+
+.right {
+   float: right;
+}
+
+button {
+   cursor: pointer;
+}
+
+a {
+   text-decoration: none;
+}
+
+nav {
+   div {
+      display: inline-block;
+   }
+}
+
+.logo {
+   width: 60px;
+   overflow: hidden;
+   img {
+      width: 100%;
+   }
+}
+
+ul li {
+   display: inline-block;
+}
+
+.menu {
+   a {
+      @include font($main,600,14px);
+   }
+}
+
+#page {
+   margin: 0;
+   padding: 0;
+   height: 100vh;
+   overflow: hidden;
+   background-image: linear-gradient(90deg, #fff 57.8%, $first-light 43.2%);
+}
+
+header {
+   margin: $page-margin;
+}
+
+.header-text {
+   width: 50%;
+   margin: 10% 0;
+   h1 {
+      margin: 0;
+      @include font($main,700,57px);
+   }
+
+   .main-btn {
+      background-color: $first-light;
+      color: #fff;
+      &:hover {
+         box-shadow: 1px 1px 4px 2px rgba($first-light,0.5);
+      }
+   }
+
+   p {
+      @include font($first-light,500,14px);
+   }
+}
+
+.person {
+   width: 50%;
+   overflow: hidden;
+   img {
+      margin: 0;
+      padding: 0;
+      width: 65%;
+   }
+}
+
+.main-btn {
+   border: none;
+   padding: 10px 16px;
+   border-radius: 20px;
+   font-weight: 600;
+}
+
+#form-page {
+   margin: 0;
+   padding: 0;
+   height: 100vh;
+   overflow: hidden;
+   background-image: linear-gradient(90deg, #fff 50%, $first-light 50%);
+}
+
+.container {
+   margin: $page-margin;
+}
+
+fieldset {
+   border: none;
+   padding: 0;
+}
+
+.signup-form {
+   width: 50%;
+   margin: 4% auto;
+   text-align: center;
+   label {
+      @include font($first-light,500,13px);
+      margin: 4px 0;
+   }
+
+   .input {
+      margin: 10px 0;
+      border: 1px solid $first-light;
+      background: transparent;
+      padding: 8px 12px;
+      width: 50%;
+      border-radius: 20px;
+      @include font($main,600,14px);
+      &:focus {
+         outline: 0;
+         border: 1.4px solid $main;
+      }
+      &::placeholder {
+         @include font($first-light,500,12px);
+      }
+   }
+
+   .main-btn {
+      margin: 10px 0;
+      background-color: $main;
+      @include font($first-light,500,13px);
+   }
+
+   h1 {
+      @include font($first-light,700,24px);
+      span {
+         color: #B0DBEB;
+      }
+   }
+}
+
+.login-form {
+   width: 50%;
+   margin: 4% auto;
+   text-align: center;
+   label {
+      @include font($first-light,500,13px);
+      margin: 4px 0;
+   }
+
+   .input {
+      margin: 10px 0;
+      border: 1px solid rgba($main,0.7);
+      background: transparent;
+      padding: 8px 12px;
+      width: 50%;
+      border-radius: 20px;
+      @include font($main,600,14px);
+      &:focus {
+         outline: 0;
+         border: 1.4px solid $main;
+      }
+      &::placeholder {
+         @include font(rgba($main,0.7),500,12px);
+      }
+   }
+
+   .main-btn {
+      margin: 10px 0;
+      background-color: $main;
+      @include font($first-light,500,13px);
+   }
+
+   h1 {
+      @include font($main,700,24px);
+      span {
+         color: rgba($main,0.6);
+      }
+   }
+}
