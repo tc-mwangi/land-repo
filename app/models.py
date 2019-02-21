@@ -33,7 +33,7 @@ class User(UserMixin,db.Model):
     def __repr__(self):
         return f'User {self.username}'
 
-class Map:
-    '''creates insatnces of map
+class review:
+    '''creates instances of a review
     '''
 
