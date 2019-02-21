@@ -2,8 +2,9 @@ import os
 
 class Config:
 
-    # MAP_API_BASE_URL =''
-    # MAP_API_KEY = os.environ.get('MOVIE_API_KEY')
+    MAP_API_BASE_URL ="https://api.mapbox.com/geocoding/v5/mapbox.places/starbucks.json?bbox=-77.083056,38.908611,-76.997778,38.959167&access_token=sk.eyJ1Ijoic2FiZXJkYW5nZXIiLCJhIjoiY2pzZWJjZ3JwMTI0ZDN6bWx4bHplcWl3dyJ9.8EJHp44K185MRZExZcv_Tg"
+    
+    MAP_API_KEY = os.environ.get('MAP_API_KEY ')
     SECRET_KEY = os.environ.get('SECRET_KEY')
     MAPBOX_ACCESS_KEY = os.environ['MAPBOX_ACCESS_KEY']
 
@@ -25,14 +26,14 @@ class Config:
         pass
 
 class ProdConfig(Config):
-    #SQLALCHEMY_DATABASE_URI = os.environ.get("VYBE_DATABASE_URL")
+    # SQLALCHEMY_DATABASE_URI = os.environ.get("VYBE_DATABASE_URL")
     pass
 
 class TestConfig(Config):
     '''
     Docstring
     '''
-    SQLALCHEMY_DATABASE_URI = os.environ.get("VYBE_DATABASE_URL")
+    # SQLALCHEMY_DATABASE_URI = os.environ.get("DATABASE_URL")
     pass
 
 class DevConfig(Config):
