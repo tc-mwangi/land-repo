@@ -1,5 +1,5 @@
 from flask_wtf import FlaskForm
-from wtforms import StringField, TextAreaField, SubmitField, PasswordField,BooleanField
+from wtforms import StringField, TextAreaField, SubmitField, PasswordField,BooleanField,FloatField,SelectField
 from wtforms.validators import Required,Email,EqualTo
 from ..models import User
 from wtforms import ValidationError
@@ -8,7 +8,7 @@ class LoginForm(FlaskForm):
 	email = StringField('Your Email Address',validators=[Required(),Email()], render_kw={"placeholder": "Enter Your Email"})
 	password = PasswordField('Password',validators =[Required()], render_kw={"placeholder": "Enter Your Password"})
 	remember = BooleanField('Remember me')
-	submit = SubmitField('Sign In')
+	submit = SubmitField('Log In')
 
 class RegistrationForm(FlaskForm):
     email = StringField('Your Email Address',validators=[Required(),Email()], render_kw={"placeholder": "Your Email Address"})
@@ -24,3 +24,11 @@ class RegistrationForm(FlaskForm):
     def validate_username(self,data_field):
         if User.query.filter_by(username = data_field.data).first():
             raise ValidationError('That username is taken')
+
+
+class PlaceForm(FlaskForm):
+    place = StringField('Name of Place',validators=[Required()], render_kw={"placeholder": "Enter the name of the Place"})
+    lat = FloatField('Latitude',validators=[Required()], render_kw={"placeholder": "Enter Latitude"})
+    lng = FloatField('Longitude',validators=[Required()], render_kw={"placeholder": "Enter Longitude"})
+    region = SelectField('Region',validators=[Required()], choices=[('Nairobi','Nairobi'),('Uasin Gishu','Uasin Gishu'),('Kisumu','Kisumu'),('Kwale','Kwale'),('Moyale','Moyale'),('Mombasa','Mombasa'),('Kilifi','Kilifi'),('Homabay','Homabay')], render_kw={"placeholder": "Enter Region"})
+    submit = SubmitField('Submit')

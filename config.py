@@ -5,6 +5,7 @@ class Config:
     # MAP_API_BASE_URL =''
     # MAP_API_KEY = os.environ.get('MOVIE_API_KEY')
     SECRET_KEY = os.environ.get('SECRET_KEY')
+    MAPBOX_ACCESS_KEY = os.environ['MAPBOX_ACCESS_KEY']
 
     SQLALCHEMY_TRACK_MODIFICATIONS = False
     UPLOADED_PHOTOS_DEST ='app/static/photos'

@@ -13,13 +13,14 @@
                <fieldset>
                   <div>
                      {{ registration_form.name(class="input") }}
+                  </div>                  
+                  <div>
+                     {{ registration_form.username(class="input") }}
                   </div>
                   <div>
                      {{ registration_form.email(class="input") }}
                   </div>
-                  <div>
-                     {{ registration_form.username(class="input") }}
-                  </div>
+
                   <div>
                      {{ registration_form.password(class="input") }}
                   </div>
@@ -39,7 +40,6 @@
                {{ login_form.hidden_tag() }}
                <fieldset>
                   <div>
-         
                      {{ login_form.email(class="input") }}
                   </div>
                   <div>
@@ -56,7 +56,5 @@
       </div>
    </header>   
 
-
-   
 
 {% endblock %}
