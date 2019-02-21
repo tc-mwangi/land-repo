@@ -1,0 +1,16 @@
+   <nav>
+      <div class='logo'>
+         <a href="{{ url_for('main.index') }}" class='logo'>
+            <img src="{{ url_for('static', filename='images/logo.png') }}" alt="">
+         </a>
+      </div>
+      <div class="menu right">
+         <ul>
+            <li class="avatar-tiny">
+               <a href="{{ url_for('auth.register') }}">
+                  <img src="{{ url_for('static', filename='avatars/'+user.avatar) }}" alt="">
+               </a>
+            </li>
+         </ul>
+      </div>
+   </nav>

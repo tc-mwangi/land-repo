@@ -5,6 +5,7 @@ class Config:
     MAP_API_BASE_URL =''
     MAP_API_KEY = os.environ.get('MAP_API_KEY')
     SECRET_KEY = os.environ.get('SECRET_KEY')
+    MAPBOX_ACCESS_KEY = os.environ['MAPBOX_ACCESS_KEY']
 
     SQLALCHEMY_TRACK_MODIFICATIONS = False
     UPLOADED_PHOTOS_DEST ='app/static/photos'
@@ -26,11 +27,14 @@ class Config:
         pass
 
 class ProdConfig(Config):
-    SQLALCHEMY_DATABASE_URI = os.environ.get("VYBE_DATABASE_URL")
+    #SQLALCHEMY_DATABASE_URI = os.environ.get("VYBE_DATABASE_URL")
     pass
 
 class TestConfig(Config):
-    SQLALCHEMY_DATABASE_URI = 'postgresql+psycopg2://saberdanger:cartoonroyalty@localhost/vybetest'
+    '''
+    Docstring
+    '''
+    SQLALCHEMY_DATABASE_URI = os.environ.get("VYBE_DATABASE_URL")
     pass
 
 class DevConfig(Config):
@@ -41,5 +45,4 @@ config_options = {
     "production":ProdConfig,
     "development":DevConfig,
     "testing":TestConfig
-    }
-
+}

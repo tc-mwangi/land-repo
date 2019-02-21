@@ -1,0 +1,27 @@
+{% extends 'layout.html' %}
+
+{% block content %}
+
+   <div class="in-nav">
+      {% include 'in-nav.html' %}
+   </div>
+
+   <div class="container">
+      <div class="profile-details">
+         <div class="avatar left">
+            <img src="{{ url_for('static', filename='avatars/'+user.avatar) }}" alt="">
+         </div>
+         <div class="meta right">
+            <h1>{{ user.name }}</h1>
+            <p>3 Places</p>
+            <a href="">
+               <button></button>
+            </a>
+         </div>
+      </div>
+   </div>
+
+
+{% endblock %}
+
+
