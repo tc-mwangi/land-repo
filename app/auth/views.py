@@ -1,18 +1,15 @@
 from . import auth
 from flask import render_template,redirect,url_for, flash,request
-from ..models import User
-from .forms import LoginForm,RegistrationForm
+from ..models import User,Places
+from .forms import LoginForm,RegistrationForm,PlaceForm
 from .. import db
 from flask_login import login_user,logout_user,login_required
-
-
 
 @auth.route('/logout')
 @login_required
 def logout():
     logout_user()
     return redirect(url_for("main.index"))
-
 
 @auth.route('/register',methods = ["GET","POST"])
 def register():
@@ -38,3 +35,17 @@ def register():
         flash('Invalid username or Password')
         
     return render_template('auth/register.html',registration_form = form,login_form = login_form)
+
+@auth.route('/add_location',methods = ["GET","POST"])
+def add_location():
+
+    place_form = PlaceForm()
+
+    if place_form.validate_on_submit():
+        place = Places(place_name = place_form.place.data, region = place_form.region.data, lat = place_form.lat.data, lng = place_form.lng.data)
+
+        if place is not None:
+            place.save_place()
+
+            return redirect(url_for("auth.add_location"))
+    return render_template('auth/add-locale.html', place_form=place_form)

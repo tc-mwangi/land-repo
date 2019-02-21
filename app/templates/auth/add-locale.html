@@ -1,0 +1,38 @@
+{% extends 'layout.html' %}
+
+{% block content %}
+
+   <div id="form-page">
+      <header>
+         {% include "nav.html" %}
+
+         <div class="signup-form left">
+            <h1>Share a location.<span><br></span></h1>
+            <form method='POST' action="">
+               {{ place_form.hidden_tag() }}
+               <fieldset>
+                  <div>
+                     {{ place_form.place(class="input") }}
+                  </div>                  
+                  <div>
+                     {{ place_form.region(class="input") }}
+                  </div>
+                  <div>
+                     {{ place_form.lat(class="input") }}
+                  </div>
+
+                  <div>
+                     {{ place_form.lng(class="input") }}
+                  </div>
+               </fieldset>
+               <div>
+                  {{ place_form.submit(class="main-btn") }}
+               </div>
+            </form>
+         </div>
+
+      </div>
+   </header>   
+
+
+{% endblock %}
