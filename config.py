@@ -25,14 +25,14 @@ class Config:
         pass
 
 class ProdConfig(Config):
-    # SQLALCHEMY_DATABASE_URI = os.environ.get("VYBE_DATABASE_URL")
+    #SQLALCHEMY_DATABASE_URI = os.environ.get("VYBE_DATABASE_URL")
     pass
 
 class TestConfig(Config):
     '''
     Docstring
     '''
-    # SQLALCHEMY_DATABASE_URI = os.environ.get("DATABASE_URL")
+    SQLALCHEMY_DATABASE_URI = os.environ.get("VYBE_DATABASE_URL")
     pass
 
 class DevConfig(Config):
@@ -44,4 +44,3 @@ config_options = {
     "development":DevConfig,
     "testing":TestConfig
 }
-
