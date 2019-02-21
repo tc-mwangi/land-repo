@@ -2,8 +2,9 @@ import unittest
 from flask_script import Manager,Server
 from app import create_app,db
 from flask_migrate import Migrate,MigrateCommand
-from config import config_options
-from app.models import User,Places,Favorites,Review
+from config import config_option
+from app.models import User,Favorites,Review,Places
+
 
 #Instances of app
 #app = create_app('development')
@@ -28,7 +29,6 @@ def test():
 @manager.shell
 def make_shell_context():
     return dict(app = app,db = db,User=User,Places=Places,Favorites=Favorites,Review=Review)
-
 
 
 if __name__ == '__main__':
