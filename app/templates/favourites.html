@@ -1,32 +1,36 @@
-<html>
-    <head>
-        <meta name='viewport' content='initial-scale=1,maximum-scale=1,user-scalable=no' />
-        <link href='https://api.tiles.mapbox.com/mapbox.js/v2.2.3/mapbox.css' rel='stylesheet' />
-        <script src='https://api.tiles.mapbox.com/mapbox.js/v2.2.3/mapbox.js'></script>
-        <script type="text/javascript" src="https://code.jquery.com/jquery-2.1.4.min.js"></script>
-        <style>
-            body { margin:0; padding:0; }
-            #map { width: 100%; height: 700px; }
+{% include "layout.html" %}
+
+{% block content %}
 
 
 
-        </style>
-    </head>
-    <body>
-        <div id="map"></div>
-        <script>
-            L.mapbox.accessToken = 'pk.eyJ1Ijoic2FiZXJkYW5nZXIiLCJhIjoiY2pzZHhnbzY3MGFwazQ0cDRjaWk0MDRwZSJ9.-5E6mGB8ehOgTYDpzJaU9Q';
+    <div class="container">
+        {% include "in-nav.html" %}
+    </div>
 
-            var map = L.mapbox.map('map', 'mapbox.streets', {
-              scrollWheelZoom: true,
-              zoomControl: true,
-            }).setView([-1.2825,36.8234], 6);
-            
-            L.mapbox.featureLayer({{stop_locations|safe}}).addTo(map);
+    <div class="container popular">
+        <h1>Popular Places</h1>
+    </div>
+    <div class="card-pane">
+        <div class="container">
+            {% for place in places %}
+            <div class="place-card">
+                <div class="place-image">
+                    <img src="{{ url_for('static', filename='places/'+place.image) }}" alt="">
+                </div>
+                <div class="place-details">
+                    <h1>{{ place.place_name }}</h1>
+                    <a href="{{ url_for('main.like', id=place.id) }}">
+                        <p><i class="fas fa-heart"></i> {{ place.favs.count() }} Favorites</p>  
+                    </a>  
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+        
+        
+    </div>      
 
-            L.mapbox.featureLayer({{route_data|safe}}).addTo(map);
-        </script>
-    </body>
-</html>
+{% endblock %}
 
 

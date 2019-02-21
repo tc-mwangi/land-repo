@@ -18,17 +18,35 @@ def configure_request(app):
 
 
 ROUTE = [
-    {"lat": -1.2384, "long": 36.8324, "name": "Karura Forest", "is_stop_location": True},
-    {"lat": 2.4382, "long": 37.6062, "name": "Marsabit National Park", "is_stop_location": True},
-    {"lat": -0.536364, "long": 36.114571, "name": "Lemon Valley Farm", "is_stop_location": True},
-    {"lat": 0.4120, "long": 34.1417, "name": "Rusinga Island Lounge", "is_stop_location": True},
-    {"lat": -0.27456, "long": 35.97311, "name": "Egerton Castle Nakuru", "is_stop_location": True},
-    {"lat": -3.30937, "long": 40.01553, "name": "Gedi Ruins", "is_stop_location": True},
-    {"lat": -3.3606, "long": 39.7465, "name": "Arabuko-Sokoke", "is_stop_location": True},
-    {"lat": 2.0760, "long": 36.6490, "name": "Lake Turkana National Park", "is_stop_location": True},
-    {"lat": 3.17055, "long": 37.34952, "name": "Chalbi Desert Marsabit", "is_stop_location": True},
-    {"lat": -3.7874, "long": 39.2572, "name": "Tsavo National Park", "is_stop_location": True}       
+    # {"lat": -1.2384, "long": 36.8324, "name": "Karura Forest", "is_stop_location": True},
+    # {"lat": 2.4382, "long": 37.6062, "name": "Marsabit National Park", "is_stop_location": True},
+    # {"lat": -0.536364, "long": 36.114571, "name": "Lemon Valley Farm", "is_stop_location": True},
+    # {"lat": 0.4120, "long": 34.1417, "name": "Rusinga Island Lounge", "is_stop_location": True},
+    # {"lat": -0.27456, "long": 35.97311, "name": "Egerton Castle Nakuru", "is_stop_location": True},
+    # {"lat": -3.30937, "long": 40.01553, "name": "Gedi Ruins", "is_stop_location": True},
+    # {"lat": -3.3606, "long": 39.7465, "name": "Arabuko-Sokoke", "is_stop_location": True},
+    # {"lat": 2.0760, "long": 36.6490, "name": "Lake Turkana National Park", "is_stop_location": True},
+    # {"lat": 3.17055, "long": 37.34952, "name": "Chalbi Desert Marsabit", "is_stop_location": True},
+    # {"lat": -3.7874, "long": 39.2572, "name": "Tsavo National Park", "is_stop_location": True}       
 ]
+
+
+def get_from_database(points):
+    '''
+    Get Co-ordinates stored in the database
+    '''
+
+    ROUTE.append(points)
+
+    return ROUTE
+
+def get_route():
+
+    '''
+    Gets routes dictionary
+    '''
+
+    return ROUTE
 
 
 
@@ -57,9 +75,10 @@ def create_stop_location_detail(title, latitude, longitude, index, route_index):
     return feature
 
 
-def create_stop_locations_details():
+def create_stop_locations_details(routes):
+
     stop_locations = []
-    for route_index, location in enumerate(ROUTE):
+    for route_index, location in enumerate(routes):
         if not location["is_stop_location"]:
             continue
         stop_location = create_stop_location_detail(

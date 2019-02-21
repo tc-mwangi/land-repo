@@ -52,7 +52,7 @@ class Places(db.Model):
     lng = db.Column(db.Float,nullable=False)
     image = db.Column(db.String, default='default.jpg')
     reviews = db.relationship('Review',backref = 'reviews',lazy ="dynamic")
-    fav = db.relationship('Favorites',backref = 'favorites',lazy ="dynamic")
+    favs = db.relationship('Favorites',backref = 'favorites',lazy ="dynamic")
 
     def save_place(self):
         db.session.add(self)

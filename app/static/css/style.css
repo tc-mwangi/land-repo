@@ -40,8 +40,9 @@ ul li {
 .menu a {
   font-family: "Montserrat", sans-serif;
   color: #5d2072;
-  font-weight: 600;
-  font-size: 14px;
+  font-weight: 500;
+  font-size: 13px;
+  margin: 0 5px;
 }
 
 #page {
@@ -203,6 +204,11 @@ fieldset {
   color: #B0DBEB;
 }
 
+#map {
+  width: 100%;
+  height: 560px;
+}
+
 .login-form {
   width: 50%;
   margin: 4% auto;
@@ -293,7 +299,12 @@ fieldset {
 }
 
 .in-nav nav {
+  width: 95%;
   margin: 0.5% 2.5%;
+}
+
+.in-nav nav div {
+  display: inline-block;
 }
 
 .avatar {
@@ -308,14 +319,15 @@ fieldset {
 }
 
 .avatar-tiny {
-  width: 30px;
-  height: 30px;
+  width: 25px;
+  height: 25px;
   border-radius: 50%;
   overflow: hidden;
 }
 
 .avatar-tiny img {
   width: 100%;
+  vertical-align: center;
 }
 
 .logo {
@@ -347,6 +359,70 @@ fieldset {
   font-family: "Montserrat", sans-serif;
   color: rgba(51, 51, 51, 0.5);
   font-weight: 600;
+  font-size: 14px;
+}
+
+.card-pane {
+  overflow-x: scroll;
+  overflow-y: hidden;
+  white-space: nowrap;
+}
+
+.card-pane .place-card {
+  display: inline-block;
+}
+
+.card-pane::-webkit-scrollbar {
+  display: none;
+}
+
+.place-card {
+  white-space: normal;
+  margin: 0.3% 0.5%;
+  width: 300px;
+  height: 280px;
+  -webkit-box-shadow: 1px 1px 4px 1px rgba(51, 51, 51, 0.1);
+          box-shadow: 1px 1px 4px 1px rgba(51, 51, 51, 0.1);
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  overflow: hidden;
+}
+
+.place-card .place-image {
+  margin: 0;
+  padding: 0;
+  width: 300px;
+  height: 200px;
+  overflow: hidden;
+}
+
+.place-card .place-image img {
+  width: 100%;
+}
+
+.place-details {
+  margin: 1% 2%;
+  text-align: left;
+}
+
+.place-details h1 {
+  font-family: "Montserrat", sans-serif;
+  color: #333;
+  font-weight: 600;
+  font-size: 18px;
+}
+
+.place-details p {
+  font-family: "Montserrat", sans-serif;
+  color: #79cbe9;
+  font-weight: 500;
+  font-size: 13px;
+}
+
+.popular {
+  font-family: "Montserrat", sans-serif;
+  color: #5d2072;
+  font-weight: 700;
   font-size: 14px;
 }
 /*# sourceMappingURL=style.css.map */
