@@ -1,17 +1,62 @@
-{% extends 'base.html'%}
-{% import 'bootstrap/wtf.html' as wtf%}
+{% extends 'layout.html' %}
 
 {% block content %}
-<div class="container">
-<div class="row">
-<div class="col-md-2"> </div>
-<div class="col-md-8">
 
-{{wtf.quick_form(registration_form)}}
+   <div id="form-page">
+      <header>
+         {% include "nav.html" %}
 
-</div>
-<div class="col-md-2"></div>
-</div>
-</div>
+         <div class="signup-form left">
+            <h1>Join us <span>to discover new <br>and exciting places</span></h1>
+            <form method='POST' action="">
+               {{ registration_form.hidden_tag() }}
+               <fieldset>
+                  <div>
+                     {{ registration_form.name(class="input") }}
+                  </div>
+                  <div>
+                     {{ registration_form.email(class="input") }}
+                  </div>
+                  <div>
+                     {{ registration_form.username(class="input") }}
+                  </div>
+                  <div>
+                     {{ registration_form.password(class="input") }}
+                  </div>
+                  <div>
+                     {{ registration_form.password_confirm(class="input") }}
+                  </div>
+               </fieldset>
+               <div>
+                  {{ registration_form.submit(class="main-btn") }}
+               </div>
+            </form>
+         </div>
 
-{% endblock%}
+         <div class="login-form right">
+            <h1>Welcome back. <span><br>Continue exploring.</span></h1>
+            <form method='POST' action="">
+               {{ login_form.hidden_tag() }}
+               <fieldset>
+                  <div>
+         
+                     {{ login_form.email(class="input") }}
+                  </div>
+                  <div>
+                  
+                     {{ login_form.password(class="input") }}
+                  </div>
+               </fieldset>
+               <div>
+                  {{ login_form.submit(class="main-btn") }}
+               </div>
+            </form>
+         </div>
+
+      </div>
+   </header>   
+
+
+   
+
+{% endblock %}
