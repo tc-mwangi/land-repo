@@ -28,6 +28,10 @@ body {
    float: right;
 }
 
+#map {
+   height: 100%;
+ }
+
 button {
    cursor: pointer;
 }
@@ -258,5 +262,53 @@ fieldset {
    }
    p {
       @include font(rgba(#333,0.5),600,14px);
+   }
+}
+
+.card-pane {
+   overflow-x: scroll;
+   overflow-y: hidden;
+   white-space: nowrap;
+
+   .place-card {
+      display: inline-block;
+   }
+
+   &::-webkit-scrollbar {
+      display: none;
+   }
+}
+
+.place-card {
+   white-space: normal;
+   margin: 1% 0.5%;
+   width: 320px;
+   height: 100px;
+   box-shadow: 1px 1px 4px 1px rgba(#333,0.1);
+   box-sizing: border-box;
+   overflow: hidden;
+   border-radius: 5px;
+   .place-image {
+      margin: 0;
+      padding: 0;
+      width: 100px;
+      height: 100px;
+      overflow: hidden;
+      img {
+         height: 100%;
+      }
+   }
+}
+
+.place-details {
+   width: 200px;
+   margin: 1% 2%;
+   text-align: left;
+   h1 {
+      @include font(#333,600,18px);
+   }
+
+   p {
+      @include font($first-light,500,13px);
    }
 }

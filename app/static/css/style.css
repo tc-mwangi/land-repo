@@ -12,6 +12,10 @@ body {
   float: right;
 }
 
+#map {
+  height: 100%;
+}
+
 button {
   cursor: pointer;
 }
@@ -348,5 +352,64 @@ fieldset {
   color: rgba(51, 51, 51, 0.5);
   font-weight: 600;
   font-size: 14px;
+}
+
+.card-pane {
+  overflow-x: scroll;
+  overflow-y: hidden;
+  white-space: nowrap;
+}
+
+.card-pane .place-card {
+  display: inline-block;
+}
+
+.card-pane::-webkit-scrollbar {
+  display: none;
+}
+
+.place-card {
+  white-space: normal;
+  margin: 1% 0.5%;
+  width: 320px;
+  height: 100px;
+  -webkit-box-shadow: 1px 1px 4px 1px rgba(51, 51, 51, 0.1);
+          box-shadow: 1px 1px 4px 1px rgba(51, 51, 51, 0.1);
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  overflow: hidden;
+  border-radius: 5px;
+}
+
+.place-card .place-image {
+  margin: 0;
+  padding: 0;
+  width: 100px;
+  height: 100px;
+  overflow: hidden;
+}
+
+.place-card .place-image img {
+  height: 100%;
+}
+
+.place-details {
+  width: 200px;
+  margin: 1% 2%;
+  text-align: left;
+}
+
+.place-details h1 {
+  font-family: "Montserrat", sans-serif;
+  color: #333;
+  font-weight: 600;
+  font-size: 18px;
+}
+
+.place-details p {
+  font-family: "Montserrat", sans-serif;
+  color: #79cbe9;
+  font-weight: 500;
+  font-size: 13px;
 }
 /*# sourceMappingURL=style.css.map */

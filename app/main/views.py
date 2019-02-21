@@ -140,4 +140,4 @@ def home():
 
     points = create_stop_locations_details()
 
-    return render_template('home.html',title=title,points=points, user = user, ACCESS_KEY=MAPBOX_ACCESS_KEY)
+    return render_template('home.html',title=title,points=points, user = user, places = places)

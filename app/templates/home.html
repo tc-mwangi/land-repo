@@ -1,7 +1,25 @@
 {% extends 'layout.html' %}
 
 {% block content %}
-       
+
+      <div class="container">
+         {% include "in-nav.html" %}
+      </div>
+
+      <div class="container card-pane">
+         {% for place in places %}
+            <div class="place-card">
+               <div class="place-image left">
+                  <img src="{{ url_for('static', filename='places/'+place.image) }}" alt="">
+               </div>
+               <div class="place-details right">
+                  <h1>{{ place.place_name }}</h1>
+                  <p><i class="fas fa-heart"></i> {{ place.favs.count() }} Favorites</p>    
+               </div>
+            </div>
+         {% endfor %}
+         
+      </div>      
 
       <div id="map"></div>
       <script>

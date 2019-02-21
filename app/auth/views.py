@@ -42,7 +42,7 @@ def add_location():
     place_form = PlaceForm()
 
     if place_form.validate_on_submit():
-        place = Places(place_name = place_form.place.data, region = place_form.region.data, lat = place_form.lat.data, lng = place_form.lng.data)
+        place = Places(place_name = place_form.place.data, region = place_form.region.data, lat = place_form.lat.data, lng = place_form.lng.data, image = 'default.jpg')
 
         if place is not None:
             place.save_place()
