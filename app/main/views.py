@@ -4,7 +4,7 @@ from .. import db
 from ..models import User,Places
 from flask_login import current_user,login_required
 import json
-import requests
+from ..requests import create_stop_locations_details
 from geojson import Point, Feature
 
 
@@ -22,6 +22,22 @@ def profile():
    title = current_user.name
 
    return render_template('profile.html',title=title, user = user)
+
+
+
+@main.route('/favourites')
+@login_required
+def favourites():
+
+   user = current_user
+
+   title = current_user.name
+
+   stop_locations = create_stop_locations_details()
+
+   return render_template('favourites.html',title=title, user = user, stop_locations = stop_locations)
+
+
 
 
 @main.route('/places.geojson')

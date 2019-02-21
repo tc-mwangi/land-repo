@@ -1,0 +1,32 @@
+<html>
+    <head>
+        <meta name='viewport' content='initial-scale=1,maximum-scale=1,user-scalable=no' />
+        <link href='https://api.tiles.mapbox.com/mapbox.js/v2.2.3/mapbox.css' rel='stylesheet' />
+        <script src='https://api.tiles.mapbox.com/mapbox.js/v2.2.3/mapbox.js'></script>
+        <script type="text/javascript" src="https://code.jquery.com/jquery-2.1.4.min.js"></script>
+        <style>
+            body { margin:0; padding:0; }
+            #map { width: 100%; height: 700px; }
+
+
+
+        </style>
+    </head>
+    <body>
+        <div id="map"></div>
+        <script>
+            L.mapbox.accessToken = 'pk.eyJ1Ijoic2FiZXJkYW5nZXIiLCJhIjoiY2pzZHhnbzY3MGFwazQ0cDRjaWk0MDRwZSJ9.-5E6mGB8ehOgTYDpzJaU9Q';
+
+            var map = L.mapbox.map('map', 'mapbox.streets', {
+              scrollWheelZoom: true,
+              zoomControl: true,
+            }).setView([-1.2825,36.8234], 6);
+            
+            L.mapbox.featureLayer({{stop_locations|safe}}).addTo(map);
+
+            L.mapbox.featureLayer({{route_data|safe}}).addTo(map);
+        </script>
+    </body>
+</html>
+
+
