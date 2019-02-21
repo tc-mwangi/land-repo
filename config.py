@@ -3,7 +3,7 @@ import os
 class Config:
 
     MAP_API_BASE_URL =''
-    MAP_API_KEY = os.environ.get('MOVIE_API_KEY')
+    MAP_API_KEY = os.environ.get('MAP_API_KEY')
     SECRET_KEY = os.environ.get('SECRET_KEY')
 
     SQLALCHEMY_TRACK_MODIFICATIONS = False
