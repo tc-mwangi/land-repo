@@ -6,7 +6,7 @@
          {% include "in-nav.html" %}
       </div>
 
-      <div class="container card-pane">
+      <!-- <div class="container card-pane">
          {% for place in places %}
             <div class="place-card">
                <div class="place-image left">
@@ -19,18 +19,19 @@
             </div>
          {% endfor %}
          
-      </div>      
+      </div>       -->
 
       <div id="map"></div>
       <script>
-            L.mapbox.accessToken = '{{ACCESS_KEY}}';
+         L.mapbox.accessToken = 'pk.eyJ1Ijoic2FiZXJkYW5nZXIiLCJhIjoiY2pzZHhnbzY3MGFwazQ0cDRjaWk0MDRwZSJ9.-5E6mGB8ehOgTYDpzJaU9Q';
 
-            var map = L.mapbox.map('map', 'mapbox.streets', {
-            scrollWheelZoom: false,
-            zoomControl: false
-            }).setView([65.0,-18.73], 7);
+         var map = L.mapbox.map('map', 'mapbox.streets', {
+            scrollWheelZoom: true,
+            zoomControl: true,
+         }).setView([-1.2825,36.8234], 6);
+         
+         L.mapbox.featureLayer({{ stop_locations|safe }}).addTo(map);
 
-            L.mapbox.featureLayer({{points|safe}}).addTo(map);
       </script>
 
 

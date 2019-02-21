@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset='utf-8' />
+    <title>Map</title>
+    <meta name='viewport' content='initial-scale=1,maximum-scale=1,user-scalable=no' />
+    <script src='https://api.tiles.mapbox.com/mapbox-gl-js/v0.53.0/mapbox-gl.js'></script>
+    <link href='https://api.tiles.mapbox.com/mapbox-gl-js/v0.53.0/mapbox-gl.css' rel='stylesheet' />
+    <style>
+        body { margin:0; padding:0; }
+        #map { position:absolute; top:0; bottom:0; width:100%; }
+    </style>
+</head>
+<body>
+
+<!-- map rendered here -->
+<div id='map'>Pick a place</div>
+<script>
+mapboxgl.accessToken = 'pk.eyJ1Ijoic2FiZXJkYW5nZXIiLCJhIjoiY2pzYnRwam1oMGRyczQ1bWxweHl4MmltdSJ9.r3PTm_k0VkCSoLtPftuwjg';
+var map = new mapboxgl.Map({
+    container: 'map', // container id
+    style: 'mapbox://styles/mapbox/light-v9', //hosted style id
+    center: [-77.38, 39], // starting position
+    zoom: 3 // starting zoom
+});
+</script>
+
+</body>
+</html>
