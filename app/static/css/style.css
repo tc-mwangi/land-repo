@@ -42,7 +42,17 @@ ul li {
   color: #5d2072;
   font-weight: 500;
   font-size: 13px;
-  margin: 0 5px;
+}
+
+.menu .text a {
+  margin: 0 8px;
+}
+
+.menu .text a:hover {
+  font-family: "Montserrat", sans-serif;
+  color: #5d2072;
+  font-weight: 600;
+  font-size: 14px;
 }
 
 #page {
@@ -292,8 +302,8 @@ fieldset {
 .in-nav {
   margin: 0;
   padding: 0;
-  -webkit-box-shadow: 0 1px 6px 1px rgba(51, 51, 51, 0.1);
-          box-shadow: 0 1px 6px 1px rgba(51, 51, 51, 0.1);
+  -webkit-box-shadow: 0 4px 6px 1px rgba(51, 51, 51, 0.05);
+          box-shadow: 0 4px 6px 1px rgba(51, 51, 51, 0.05);
   -webkit-box-sizing: border-box;
           box-sizing: border-box;
 }
@@ -312,6 +322,7 @@ fieldset {
   height: 120px;
   border-radius: 50%;
   overflow: hidden;
+  vertical-align: middle;
 }
 
 .avatar img {
@@ -323,11 +334,11 @@ fieldset {
   height: 25px;
   border-radius: 50%;
   overflow: hidden;
+  vertical-align: middle;
 }
 
 .avatar-tiny img {
   width: 100%;
-  vertical-align: center;
 }
 
 .logo {
@@ -362,6 +373,10 @@ fieldset {
   font-size: 14px;
 }
 
+.clear-left {
+  clear: left;
+}
+
 .card-pane {
   overflow-x: scroll;
   overflow-y: hidden;
@@ -376,7 +391,19 @@ fieldset {
   display: none;
 }
 
+.title-text h1 {
+  font-family: "Montserrat", sans-serif;
+  color: #5d2072;
+  font-weight: 600;
+  font-size: 16px;
+}
+
+.in-profile-card {
+  margin-top: 4%;
+}
+
 .place-card {
+  clear: left;
   white-space: normal;
   margin: 0.3% 0.5%;
   width: 300px;

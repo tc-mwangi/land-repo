@@ -6,10 +6,10 @@
       </div>
       <div class="menu right">
          <ul>
-            <li><a href="{{ url_for('main.home') }}">Explore</a></li>
-            <li><a href="{{ url_for('main.favourites') }}">Popular</a></li>
+            <li class='text'><a href="{{ url_for('main.home') }}">Explore</a></li>
+            <li class='text'><a href="{{ url_for('main.favourites') }}">Popular</a></li>
             <li class="avatar-tiny">
-               <a href="{{ url_for('auth.register') }}">
+               <a href="{{ url_for('main.profile') }}">
                   <img src="{{ url_for('static', filename='avatars/'+user.avatar) }}" alt="">
                </a>
             </li>

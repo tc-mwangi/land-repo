@@ -55,9 +55,16 @@ ul li {
 }
 
 .menu {
+   // width: 20%;
    a {
       @include font($main,500,13px);
-      margin: 0 5px;
+   }
+
+   .text a {
+      margin: 0 8px;
+      &:hover {
+         @include font($main,600,14px);
+      }
    }
 }
 
@@ -216,7 +223,7 @@ fieldset {
 .in-nav {
    margin: 0;
    padding: 0;
-   box-shadow: 0 1px 6px 1px rgba(#333,0.1);
+   box-shadow: 0 4px 6px 1px rgba(#333,0.05);
    box-sizing: border-box;
 
    nav {
@@ -233,6 +240,7 @@ fieldset {
    height: 120px;
    border-radius: 50%;
    overflow: hidden;
+   vertical-align: middle;
    img {
       width: 100%;
    }
@@ -243,9 +251,9 @@ fieldset {
    height: 25px;
    border-radius: 50%;
    overflow: hidden;
+   vertical-align: middle;
    img {
       width: 100%;
-      vertical-align: center;
    }
 }
 
@@ -272,6 +280,10 @@ fieldset {
    }
 }
 
+.clear-left {
+   clear: left;
+}
+
 .card-pane {
    overflow-x: scroll;
    overflow-y: hidden;
@@ -286,7 +298,18 @@ fieldset {
    }
 }
 
+.title-text {
+   h1 {
+      @include font($main,600,16px);
+   }
+}
+
+.in-profile-card {
+   margin-top: 4%;
+}
+
 .place-card {
+   clear: left;
    white-space: normal;
    margin: 0.3% 0.5%;
    width: 300px;

@@ -1,8 +1,8 @@
 """empty message
 
-Revision ID: 1f5dd1d76c9e
+Revision ID: abb62d092d2e
 Revises: 
-Create Date: 2019-02-21 12:44:48.910096
+Create Date: 2019-02-22 04:01:38.928444
 
 """
 from alembic import op
@@ -10,7 +10,7 @@ import sqlalchemy as sa
 
 
 # revision identifiers, used by Alembic.
-revision = '1f5dd1d76c9e'
+revision = 'abb62d092d2e'
 down_revision = None
 branch_labels = None
 depends_on = None
@@ -21,9 +21,11 @@ def upgrade():
     op.create_table('places',
     sa.Column('id', sa.Integer(), nullable=False),
     sa.Column('place_name', sa.String(length=100), nullable=False),
+    sa.Column('region', sa.String(length=100), nullable=False),
     sa.Column('description', sa.String(length=300), nullable=True),
     sa.Column('lat', sa.Float(), nullable=False),
     sa.Column('lng', sa.Float(), nullable=False),
+    sa.Column('image', sa.String(), nullable=True),
     sa.PrimaryKeyConstraint('id')
     )
     op.create_table('users',
@@ -31,6 +33,7 @@ def upgrade():
     sa.Column('name', sa.String(length=255), nullable=True),
     sa.Column('username', sa.String(length=255), nullable=False),
     sa.Column('email', sa.String(length=255), nullable=False),
+    sa.Column('avatar', sa.String(length=200), nullable=True),
     sa.Column('pass_secure', sa.String(length=255), nullable=True),
     sa.PrimaryKeyConstraint('id'),
     sa.UniqueConstraint('email'),

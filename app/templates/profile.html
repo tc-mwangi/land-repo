@@ -14,12 +14,30 @@
          <div class="meta right">
             <h1>{{ user.name }}</h1>
             <p>3 Places</p>
-            <a href="">
-               <button><a href="{{ url_for('main.favourites') }}">Favourites</a></button>
+            <a href="{{ url_for('main.favourites') }}">
+               <button class="main-btn">Favourites</button>
             </a>
          </div>
       </div>
    </div>
+
+   <div class="card-pane clear-left in-profile-card">
+         <div class="container">
+             {% for place in places %}
+             <div class="place-card">
+                 <div class="place-image">
+                     <img src="{{ url_for('static', filename='places/'+place.image) }}" alt="">
+                 </div>
+                 <div class="place-details">
+                     <h1>{{ place.place_name }}</h1>
+                     <a href="{{ url_for('main.like', id=place.id) }}">
+                         <p><i class="fas fa-heart"></i> {{ place.favs|count() }} Favorites</p>  
+                     </a>  
+                 </div>
+             </div>
+             {% endfor %}
+         </div>
+     </div>  
 
 
 {% endblock %}
