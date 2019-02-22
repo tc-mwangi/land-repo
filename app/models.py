@@ -4,12 +4,8 @@ from flask_login import UserMixin
 from . import login_manager
 from datetime import datetime
 
-@login_manager.user_loader
-def load_user(user_id):
-    return User.query.get(int(user_id))
 
-
-class User(UserMixin,db.Model):
+class User(db.Model,UserMixin):
 
     '''creates instances of user
     '''
@@ -52,7 +48,7 @@ class Places(db.Model):
     lng = db.Column(db.Float,nullable=False)
     image = db.Column(db.String, default='default.jpg')
     reviews = db.relationship('Review',backref = 'reviews',lazy ="dynamic")
-    favs = db.relationship('Favorites',backref = 'favorites',lazy ="dynamic")
+    favs = db.relationship('Favorites',backref='favorites',lazy=True)
 
     def save_place(self):
         db.session.add(self)
@@ -89,3 +85,8 @@ class Review(db.Model):
 	def save_review(self):
 		db.session.add(self)
 		db.session.commit()
+
+
+@login_manager.user_loader
+def load_user(user_id):
+    return User.query.get(int(user_id))

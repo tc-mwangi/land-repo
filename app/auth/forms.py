@@ -5,7 +5,7 @@ from ..models import User
 from wtforms import ValidationError
 
 class LoginForm(FlaskForm):
-	email = StringField('Your Email Address',validators=[Required(),Email()], render_kw={"placeholder": "Enter Your Email"})
+	username = StringField('Your Username',validators=[Required()], render_kw={"placeholder": "Enter Your Username"})
 	password = PasswordField('Password',validators =[Required()], render_kw={"placeholder": "Enter Your Password"})
 	remember = BooleanField('Remember me')
 	submit = SubmitField('Log In')

@@ -17,11 +17,20 @@ def index():
 @login_required
 def profile():
 
-   user = current_user
+    favorites = Favorites.query.filter_by(user_id=current_user.id).all()
+    places = []
+    for favorite in favorites:
+        {favorite.place_id,favorite.user_id}
+        place = Places.query.filter_by(id=favorite.place_id).first()
+        if place not in places:
+            places.append(place)
 
-   title = current_user.name
+    # places = Places.query.filter_by(id = favorites.place_id).all()
+    user = current_user
 
-   return render_template('profile.html',title=title, user = user)
+    title = current_user.name
+
+    return render_template('profile.html',title=title, user = user,places=places)
 
 
 
@@ -62,11 +71,11 @@ def home():
 
     return render_template('home.html',title=title,stop_locations=stop_locations, user = user, ACCESS_KEY='sk.eyJ1Ijoic2FiZXJkYW5nZXIiLCJhIjoiY2pzZWJjZ3JwMTI0ZDN6bWx4bHplcWl3dyJ9.8EJHp44K185MRZExZcv_Tg',places=places)
 
-@main.route('/like/<int:id>')
+@main.route('/like/<int:id>',methods=['GET','POST'])
 @login_required
 def like(id): 
 
-    place = Places.query.get_or_404(id)
+    place = Places.query.filter_by(id = id).first()
 
     has_faved = Favorites.query.filter_by(user_id=current_user.id,place_id=place.id).first()
 
@@ -75,12 +84,8 @@ def like(id):
         db.session.commit()
     else:
         fav = Favorites(place_id=place.id,user_id=current_user.id)
-        db.session.add(fav)
-        db.session.commit()
-
-    
-
-    
-
+        fav.save_favorite()
 
     return redirect(url_for('main.favourites'))
+
+    return render_template('favourites.html')

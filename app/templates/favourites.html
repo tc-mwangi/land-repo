@@ -8,8 +8,8 @@
         {% include "in-nav.html" %}
     </div>
 
-    <div class="container popular">
-        <h1>Popular Places</h1>
+    <div class="container">
+        <h1 class='title-text'>Popular Places</h1>
     </div>
     <div class="card-pane">
         <div class="container">
@@ -21,7 +21,7 @@
                 <div class="place-details">
                     <h1>{{ place.place_name }}</h1>
                     <a href="{{ url_for('main.like', id=place.id) }}">
-                        <p><i class="fas fa-heart"></i> {{ place.favs.count() }} Favorites</p>  
+                        <p><i class="fas fa-heart"></i> {{ place.favs|count() }} Favorites</p>  
                     </a>  
                 </div>
             </div>
